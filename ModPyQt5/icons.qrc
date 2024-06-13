@@ -1,0 +1,10 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+	<qresource>
+		<file>icons/cat.png</file>
+		<file>icons/inform.png</file>
+		<file>icons/date.png</file>
+		<file>icons/mods.png</file>
+		<file>icons/names.png</file>
+	</qresource>
+</RCC>

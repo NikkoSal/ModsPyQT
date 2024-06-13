@@ -48,6 +48,8 @@ class Login(QMainWindow, login):
                 self.window2 = MainApp()
                 self.close()
                 self.window2.show()
+            else:
+                self.statusBar().showMessage('Incorrect data')
 
     import sqlite3
 
@@ -132,6 +134,8 @@ class MainApp(QMainWindow, ui):
         self.pushButton_20.clicked.connect(self.Export_Daybook)
         self.pushButton_21.clicked.connect(self.Export_Mods)
 
+        self.pushButton_22.clicked.connect(self.Clear_Mods)
+
     def Show_Infrom(self):
         self.groupBox_4.show()
 
@@ -205,7 +209,7 @@ class MainApp(QMainWindow, ui):
 
 
 
-        warning = QMessageBox.warning(self, 'Delete Mod', "Are you sure you want to delete this mod",
+        warning = QMessageBox.warning(self, 'Delete Daybook', "Are you sure you want to delete this table?",
                                   QMessageBox.Yes | QMessageBox.No)
 
         if warning == QMessageBox.Yes:
@@ -214,6 +218,22 @@ class MainApp(QMainWindow, ui):
             self.db.commit()
             self.statusBar().showMessage('Table Clear')
             self.Show_Daybook()
+
+    def Clear_Mods(self):
+        self.db = sqlite3.connect(self.db_path)
+        self.cur = self.db.cursor()
+
+
+
+        warning = QMessageBox.warning(self, 'Delete Mods', "Are you sure you want to delete this table?",
+                                  QMessageBox.Yes | QMessageBox.No)
+
+        if warning == QMessageBox.Yes:
+            sql = '''DELETE FROM Mods '''
+            self.cur.execute(sql)
+            self.db.commit()
+            self.statusBar().showMessage('Table Clear')
+            self.Show_All_Mods()
 
     def Show_All_Mods(self):
 
@@ -234,6 +254,8 @@ class MainApp(QMainWindow, ui):
 
         self.db.close()
 
+    import sqlite3
+
     def Add_New_Mods(self):
         self.db = sqlite3.connect(self.db_path)
         self.cur = self.db.cursor()
@@ -246,24 +268,34 @@ class MainApp(QMainWindow, ui):
         mod_version = self.lineEdit_3.text()
         mod_discription = self.lineEdit_14.text()
 
-        self.cur.execute('''
-        INSERT INTO Mods (mod_title, mod_game, mod_category,mod_discription,mod_version, mod_link, mod_creator)
-         VALUES (?, ?, ?, ?, ?, ?, ?)
-        ''', (mod_title, mod_game, mod_category, mod_discription, mod_version, mod_link, mod_creator))
+        # Check if the mod title is empty
+        if not mod_title.strip():
+            self.statusBar().showMessage('Mod title cannot be empty')
+            return
 
-        self.db.commit()
-        self.statusBar().showMessage('New Mod Added')
+        # Check if the mod with the same title already exists
+        self.cur.execute('SELECT COUNT(*) FROM Mods WHERE mod_title = ?', (mod_title,))
+        if self.cur.fetchone()[0] > 0:
+            self.statusBar().showMessage('Mod already exists')
+        else:
+            self.cur.execute('''
+            INSERT INTO Mods (mod_title, mod_game, mod_category, mod_discription, mod_version, mod_link, mod_creator)
+             VALUES (?, ?, ?, ?, ?, ?, ?)
+            ''', (mod_title, mod_game, mod_category, mod_discription, mod_version, mod_link, mod_creator))
 
-        # Clear the input fields
-        self.lineEdit_7.setText('')
-        self.comboBox_2.setCurrentIndex(0)
-        self.comboBox_4.setCurrentIndex(0)
-        self.comboBox_5.setCurrentIndex(0)
-        self.lineEdit_6.setText('')
-        self.lineEdit_3.setText('')
-        self.lineEdit_14.setText('')
+            self.db.commit()
+            self.statusBar().showMessage('New Mod Added')
 
-        self.Show_All_Mods()
+            # Clear the input fields
+            self.lineEdit_7.setText('')
+            self.comboBox_2.setCurrentIndex(0)
+            self.comboBox_4.setCurrentIndex(0)
+            self.comboBox_5.setCurrentIndex(0)
+            self.lineEdit_6.setText('')
+            self.lineEdit_3.setText('')
+            self.lineEdit_14.setText('')
+
+            self.Show_All_Mods()
 
     def Search(self):
         self.db = sqlite3.connect(self.db_path)
@@ -336,8 +368,17 @@ class MainApp(QMainWindow, ui):
             self.db.commit()
             self.statusBar().showMessage('Mod Deleted')
 
+            self.lineEdit_7.setText('')
+            self.comboBox_2.setCurrentIndex(0)
+            self.comboBox_4.setCurrentIndex(0)
+            self.comboBox_5.setCurrentIndex(0)
+            self.lineEdit_6.setText('')
+            self.lineEdit_3.setText('')
+            self.lineEdit_14.setText('')
+
             self.Show_All_Mods()
 
+    import sqlite3
 
     def Add_Category(self):
         self.db = sqlite3.connect(self.db_path)
@@ -345,16 +386,20 @@ class MainApp(QMainWindow, ui):
 
         category_name = self.lineEdit_4.text()
 
-        self.cur.execute('''
-        INSERT INTO Categories (category_name) VALUES (?)
-        ''', (category_name,))
+        # Check if the category with the same name already exists
+        self.cur.execute('SELECT COUNT(*) FROM Categories WHERE category_name = ?', (category_name,))
+        if self.cur.fetchone()[0] > 0:
+            self.statusBar().showMessage('Сategory already exists')
+        else:
+            self.cur.execute('''
+            INSERT INTO Categories (category_name) VALUES (?)
+            ''', (category_name,))
 
-        self.db.commit()
-        self.statusBar().showMessage('New Category Added')
-        self.lineEdit_4.setText('')
-        self.Show_Category()
-        self.Show_Category_Combobox()  # обновление комбобокса
-
+            self.db.commit()
+            self.statusBar().showMessage('New Category Added')
+            self.lineEdit_4.setText('')
+            self.Show_Category()
+            self.Show_Category_Combobox()  # обновление комбобокса
 
     def Delete_Category(self):
         self.db = sqlite3.connect(self.db_path)
@@ -389,22 +434,28 @@ class MainApp(QMainWindow, ui):
                 for column, item in enumerate(form):
                     self.tableWidget_3.setItem(row, column, QTableWidgetItem(str(item)))
 
+    import sqlite3
+
     def Add_Creator(self):
         self.db = sqlite3.connect(self.db_path)
         self.cur = self.db.cursor()
 
         creator_name = self.lineEdit_5.text()
 
-        self.cur.execute('''
-        INSERT INTO Creator (creator_name) VALUES (?)
-        ''', (creator_name,))
+        # Check if the creator with the same name already exists
+        self.cur.execute('SELECT COUNT(*) FROM Creator WHERE creator_name = ?', (creator_name,))
+        if self.cur.fetchone()[0] > 0:
+            self.statusBar().showMessage('Сreator already exists')
+        else:
+            self.cur.execute('''
+            INSERT INTO Creator (creator_name) VALUES (?)
+            ''', (creator_name,))
 
-        self.db.commit()
-        self.statusBar().showMessage('New Creator Added')
-        self.lineEdit_5.setText('')
-        self.Show_Creator()
-        self.Show_Creator_Combobox()
-
+            self.db.commit()
+            self.statusBar().showMessage('New Creator Added')
+            self.lineEdit_5.setText('')
+            self.Show_Creator()
+            self.Show_Creator_Combobox()
 
     def Delete_Creator(self):
         self.db = sqlite3.connect(self.db_path)
@@ -446,15 +497,20 @@ class MainApp(QMainWindow, ui):
 
         games_name = self.lineEdit_2.text()
 
-        self.cur.execute('''
-        INSERT INTO Games (games_name) VALUES (?)
-        ''', (games_name,))
+        # Check if the game with the same name already exists
+        self.cur.execute('SELECT COUNT(*) FROM Games WHERE games_name = ?', (games_name,))
+        if self.cur.fetchone()[0] > 0:
+            self.statusBar().showMessage('Game already exists')
+        else:
+            self.cur.execute('''
+            INSERT INTO Games (games_name) VALUES (?)
+            ''', (games_name,))
 
-        self.db.commit()
-        self.statusBar().showMessage('New Game Added')
-        self.lineEdit_2.setText('')
-        self.Show_Games()
-        self.Show_Games_Combobox()
+            self.db.commit()
+            self.statusBar().showMessage('New Game Added')
+            self.lineEdit_2.setText('')
+            self.Show_Games()
+            self.Show_Games_Combobox()
 
     def Delete_Games(self):
         self.db = sqlite3.connect(self.db_path)
@@ -496,42 +552,46 @@ class MainApp(QMainWindow, ui):
         self.db = sqlite3.connect(self.db_path)
         self.cur = self.db.cursor()
 
-        self.cur.execute(''' 
-        SELECT category_name FROM Categories
-        ''')
+        self.cur.execute('SELECT category_name FROM Categories')
         data = self.cur.fetchall()
 
-        for Categories in data:
-            self.comboBox_4.addItem(Categories[0])
-            self.comboBox_10.addItem(Categories[0])
+        # Clear the comboboxes before repopulating
+        self.comboBox_4.clear()
+        self.comboBox_10.clear()
 
+        for category in data:
+            self.comboBox_4.addItem(category[0])
+            self.comboBox_10.addItem(category[0])
 
     def Show_Creator_Combobox(self):
         self.db = sqlite3.connect(self.db_path)
         self.cur = self.db.cursor()
 
-        self.cur.execute(''' 
-        SELECT creator_name FROM Creator
-        ''')
+        self.cur.execute('SELECT creator_name FROM Creator')
         data = self.cur.fetchall()
 
-        for Creator in data:
-            self.comboBox_5.addItem(Creator[0])
-            self.comboBox_11.addItem(Creator[0])
+        # Clear the comboboxes before repopulating
+        self.comboBox_5.clear()
+        self.comboBox_11.clear()
+
+        for creator in data:
+            self.comboBox_5.addItem(creator[0])
+            self.comboBox_11.addItem(creator[0])
 
     def Show_Games_Combobox(self):
         self.db = sqlite3.connect(self.db_path)
         self.cur = self.db.cursor()
 
-        self.cur.execute(''' 
-        SELECT games_name FROM Games
-        ''')
+        self.cur.execute('SELECT games_name FROM Games')
         data = self.cur.fetchall()
 
-        for Games in data:
-            self.comboBox_2.addItem(Games[0])
-            self.comboBox_9.addItem(Games[0])
+        # Clear the comboboxes before repopulating
+        self.comboBox_2.clear()
+        self.comboBox_9.clear()
 
+        for game in data:
+            self.comboBox_2.addItem(game[0])
+            self.comboBox_9.addItem(game[0])
 
     def Login(self):
         self.db = sqlite3.connect(self.db_path)
@@ -623,10 +683,10 @@ class MainApp(QMainWindow, ui):
         sheet1.write(0, 0, 'Mod Title')
         sheet1.write(0, 1, 'Game')
         sheet1.write(0, 2, 'Category')
-        sheet1.write(0, 3, 'Discription')
-        sheet1.write(0, 4, 'Actual version')
-        sheet1.write(0, 5, 'Link')
-        sheet1.write(0, 6, 'Creator')
+        sheet1.write(0, 3, 'Creator')
+        sheet1.write(0, 4, 'Link')
+        sheet1.write(0, 5, 'Actual version')
+        sheet1.write(0, 6, 'Discription')
 
 
         row_number = 1

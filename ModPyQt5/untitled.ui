@@ -29,8 +29,23 @@
       <height>71</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: #00796B;
+    color: #FFFFFF;
+    border: none;
+    padding: 5px 10px;
+}
+QPushButton:hover {
+    background-color: #00574B;
+}</string>
+    </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="icons.qrc">
+      <normaloff>:/icons/date.png</normaloff>:/icons/date.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -48,11 +63,22 @@
       <height>71</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: #00796B;
+    color: #FFFFFF;
+    border: none;
+    padding: 5px 10px;
+}
+QPushButton:hover {
+    background-color: #00574B;
+}</string>
+    </property>
     <property name="text">
      <string/>
     </property>
     <property name="icon">
-     <iconset>
+     <iconset resource="icons.qrc">
       <normaloff>:/icons/mods.png</normaloff>:/icons/mods.png</iconset>
     </property>
     <property name="iconSize">
@@ -65,18 +91,29 @@
    <widget class="QPushButton" name="pushButton_3">
     <property name="geometry">
      <rect>
-      <x>1060</x>
+      <x>1080</x>
       <y>590</y>
       <width>161</width>
       <height>71</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: #00796B;
+    color: #FFFFFF;
+    border: none;
+    padding: 5px 10px;
+}
+QPushButton:hover {
+    background-color: #00574B;
+}</string>
+    </property>
     <property name="text">
      <string/>
     </property>
     <property name="icon">
-     <iconset>
-      <normaloff>:/icons/settings.png</normaloff>:/icons/settings.png</iconset>
+     <iconset resource="icons.qrc">
+      <normaloff>:/icons/cat.png</normaloff>:/icons/cat.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -88,18 +125,29 @@
    <widget class="QPushButton" name="pushButton_4">
     <property name="geometry">
      <rect>
-      <x>830</x>
+      <x>840</x>
       <y>590</y>
       <width>151</width>
       <height>71</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: #00796B;
+    color: #FFFFFF;
+    border: none;
+    padding: 5px 10px;
+}
+QPushButton:hover {
+    background-color: #00574B;
+}</string>
+    </property>
     <property name="text">
      <string/>
     </property>
     <property name="icon">
-     <iconset>
-      <normaloff>:/icons/users.png</normaloff>:/icons/users.png</iconset>
+     <iconset resource="icons.qrc">
+      <normaloff>:/icons/names.png</normaloff>:/icons/names.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -141,7 +189,7 @@ QTableView {
 }</string>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -560,7 +608,7 @@ QPushButton:hover {
 background-color: rgb(230, 230, 230);</string>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab_10">
        <attribute name="title">
@@ -597,12 +645,7 @@ background-color: rgb(230, 230, 230);</string>
         </column>
         <column>
          <property name="text">
-          <string>Discription</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Actual version</string>
+          <string>Creator</string>
          </property>
         </column>
         <column>
@@ -612,7 +655,12 @@ background-color: rgb(230, 230, 230);</string>
         </column>
         <column>
          <property name="text">
-          <string>Creater</string>
+          <string>Actual version</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Discription</string>
          </property>
         </column>
        </widget>
@@ -630,8 +678,80 @@ background-color: rgb(230, 230, 230);</string>
           <pointsize>12</pointsize>
          </font>
         </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background-color: #00796B;
+    color: #FFFFFF;
+    border: none;
+    padding: 5px 10px;
+}
+QPushButton:hover {
+    background-color: #00574B;
+}</string>
+        </property>
         <property name="text">
          <string>Export</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_22">
+        <property name="geometry">
+         <rect>
+          <x>170</x>
+          <y>450</y>
+          <width>141</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background-color: #00796B;
+    color: #FFFFFF;
+    border: none;
+    padding: 5px 10px;
+}
+QPushButton:hover {
+    background-color: #00574B;
+}</string>
+        </property>
+        <property name="text">
+         <string>Clear</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_31">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>470</y>
+          <width>121</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+    color: #333333;
+}</string>
+        </property>
+        <property name="lineWidth">
+         <number>1</number>
+        </property>
+        <property name="text">
+         <string>Clear Table</string>
         </property>
        </widget>
       </widget>
@@ -804,7 +924,7 @@ QComboBox QAbstractItemView {
        <widget class="QPushButton" name="pushButton_7">
         <property name="geometry">
          <rect>
-          <x>540</x>
+          <x>560</x>
           <y>450</y>
           <width>151</width>
           <height>41</height>
@@ -2301,18 +2421,29 @@ QPushButton:hover {
    <widget class="QPushButton" name="pushButton_5">
     <property name="geometry">
      <rect>
-      <x>590</x>
+      <x>600</x>
       <y>590</y>
       <width>151</width>
       <height>71</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: #00796B;
+    color: #FFFFFF;
+    border: none;
+    padding: 5px 10px;
+}
+QPushButton:hover {
+    background-color: #00574B;
+}</string>
+    </property>
     <property name="text">
      <string/>
     </property>
     <property name="icon">
-     <iconset>
-      <normaloff>:/icons/theme.png</normaloff>:/icons/theme.png</iconset>
+     <iconset resource="icons.qrc">
+      <normaloff>:/icons/inform.png</normaloff>:/icons/inform.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -2334,6 +2465,8 @@ QPushButton:hover {
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources/>
+ <resources>
+  <include location="icons.qrc"/>
+ </resources>
  <connections/>
 </ui>
