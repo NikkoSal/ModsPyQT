@@ -13,6 +13,12 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget {
+    background-color: #F0F0F0;
+}
+</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
@@ -111,6 +117,29 @@
       <height>571</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">QTabBar::tab {
+    background-color: #F0F0F0;
+    color: #333333;
+    padding: 5px 10px;
+}
+
+QTabBar::tab:selected {
+    background-color: #00796B;
+    color: #FFFFFF;
+}
+
+QHeaderView::section {
+    background-color: #B2DFDB;
+    color: #333333;
+    padding: 5px;
+}
+
+QTableView {
+    background-color: #FFFFFF;
+    gridline-color: #CCCCCC;
+}</string>
+    </property>
     <property name="currentIndex">
      <number>0</number>
     </property>
@@ -164,8 +193,22 @@
       </property>
       <property name="font">
        <font>
-        <pointsize>10</pointsize>
+        <pointsize>12</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
        </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #00796B;
+    color: #FFFFFF;
+    border: none;
+    padding: 5px 10px;
+}
+
+QPushButton:hover {
+    background-color: #00574B;
+}</string>
       </property>
       <property name="text">
        <string>Add</string>
@@ -185,6 +228,12 @@
         <pointsize>10</pointsize>
        </font>
       </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit {
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+}</string>
+      </property>
       <property name="placeholderText">
        <string>Enter Mod Title</string>
       </property>
@@ -202,6 +251,35 @@
        <font>
         <pointsize>12</pointsize>
        </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QComboBox {
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    padding: 5px;
+    color: #333333;
+}
+
+QComboBox:hover {
+    border: 1px solid #00796B;
+}
+
+QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 20px;
+    border-left: 1px solid #CCCCCC;
+    background-color: #FFFFFF;
+}
+
+
+QComboBox QAbstractItemView {
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    selection-background-color: #00796B;
+    selection-color: #FFFFFF;
+}
+</string>
       </property>
       <item>
        <property name="text">
@@ -223,9 +301,9 @@
       <property name="geometry">
        <rect>
         <x>580</x>
-        <y>50</y>
+        <y>60</y>
         <width>251</width>
-        <height>61</height>
+        <height>21</height>
        </rect>
       </property>
       <property name="minimumSize">
@@ -238,6 +316,11 @@
        <font>
         <pointsize>12</pointsize>
        </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel {
+    color: #333333;
+}</string>
       </property>
       <property name="lineWidth">
        <number>1</number>
@@ -261,6 +344,12 @@
         <pointsize>10</pointsize>
        </font>
       </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit {
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+}</string>
+      </property>
       <property name="inputMask">
        <string/>
       </property>
@@ -282,6 +371,12 @@
         <pointsize>10</pointsize>
        </font>
       </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit {
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+}</string>
+      </property>
       <property name="placeholderText">
        <string>xx/xx/20xx</string>
       </property>
@@ -299,6 +394,11 @@
        <font>
         <pointsize>12</pointsize>
        </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel {
+    color: #333333;
+}</string>
       </property>
       <property name="text">
        <string>Mod Title</string>
@@ -318,6 +418,11 @@
         <pointsize>12</pointsize>
        </font>
       </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel {
+    color: #333333;
+}</string>
+      </property>
       <property name="text">
        <string>Game Title</string>
       </property>
@@ -335,6 +440,11 @@
        <font>
         <pointsize>12</pointsize>
        </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel {
+    color: #333333;
+}</string>
       </property>
       <property name="text">
        <string>Release Date</string>
@@ -360,6 +470,11 @@
         <pointsize>12</pointsize>
        </font>
       </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel {
+    color: #333333;
+}</string>
+      </property>
       <property name="lineWidth">
        <number>1</number>
       </property>
@@ -378,8 +493,19 @@
       </property>
       <property name="font">
        <font>
-        <pointsize>10</pointsize>
+        <pointsize>12</pointsize>
        </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #00796B;
+    color: #FFFFFF;
+    border: none;
+    padding: 5px 10px;
+}
+QPushButton:hover {
+    background-color: #00574B;
+}</string>
       </property>
       <property name="text">
        <string>Clear</string>
@@ -399,6 +525,18 @@
         <pointsize>12</pointsize>
        </font>
       </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+    background-color: #00796B;
+    color: #FFFFFF;
+    border: none;
+    padding: 5px 10px;
+}
+
+QPushButton:hover {
+    background-color: #00574B;
+}</string>
+      </property>
       <property name="text">
        <string>Export</string>
       </property>
@@ -417,8 +555,12 @@
         <height>551</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(229, 224, 224);
+background-color: rgb(230, 230, 230);</string>
+      </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="tab_10">
        <attribute name="title">
@@ -506,6 +648,12 @@
           <height>41</height>
          </rect>
         </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+}</string>
+        </property>
        </widget>
        <widget class="QComboBox" name="comboBox_2">
         <property name="geometry">
@@ -515,6 +663,34 @@
           <width>251</width>
           <height>31</height>
          </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QComboBox {
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    padding: 5px;
+    color: #333333;
+}
+
+QComboBox:hover {
+    border: 1px solid #00796B;
+}
+
+QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 20px;
+    border-left: 1px solid #CCCCCC;
+    background-color: #FFFFFF;
+}
+
+QComboBox QAbstractItemView {
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    selection-background-color: #00796B;
+    selection-color: #FFFFFF;
+}
+</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="lineEdit_6">
@@ -526,6 +702,12 @@
           <height>41</height>
          </rect>
         </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+}</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="lineEdit_7">
         <property name="geometry">
@@ -535,6 +717,12 @@
           <width>251</width>
           <height>41</height>
          </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+}</string>
         </property>
        </widget>
        <widget class="QComboBox" name="comboBox_4">
@@ -546,6 +734,34 @@
           <height>31</height>
          </rect>
         </property>
+        <property name="styleSheet">
+         <string notr="true">QComboBox {
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    padding: 5px;
+    color: #333333;
+}
+
+QComboBox:hover {
+    border: 1px solid #00796B;
+}
+
+QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 20px;
+    border-left: 1px solid #CCCCCC;
+    background-color: #FFFFFF;
+}
+
+QComboBox QAbstractItemView {
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    selection-background-color: #00796B;
+    selection-color: #FFFFFF;
+}
+</string>
+        </property>
        </widget>
        <widget class="QComboBox" name="comboBox_5">
         <property name="geometry">
@@ -555,6 +771,34 @@
           <width>251</width>
           <height>31</height>
          </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QComboBox {
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    padding: 5px;
+    color: #333333;
+}
+
+QComboBox:hover {
+    border: 1px solid #00796B;
+}
+
+QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 20px;
+    border-left: 1px solid #CCCCCC;
+    background-color: #FFFFFF;
+}
+
+QComboBox QAbstractItemView {
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    selection-background-color: #00796B;
+    selection-color: #FFFFFF;
+}
+</string>
         </property>
        </widget>
        <widget class="QPushButton" name="pushButton_7">
@@ -570,6 +814,17 @@
          <font>
           <pointsize>12</pointsize>
          </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background-color: #00796B;
+    color: #FFFFFF;
+    border: none;
+    padding: 5px 10px;
+}
+QPushButton:hover {
+    background-color: #00574B;
+}</string>
         </property>
         <property name="text">
          <string>Save</string>
@@ -591,6 +846,11 @@
           <bold>false</bold>
          </font>
         </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+    color: #333333;
+}</string>
+        </property>
         <property name="text">
          <string>Mod Title</string>
         </property>
@@ -610,6 +870,11 @@
           <weight>50</weight>
           <bold>false</bold>
          </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+    color: #333333;
+}</string>
         </property>
         <property name="text">
          <string>Game</string>
@@ -631,6 +896,11 @@
           <bold>false</bold>
          </font>
         </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+    color: #333333;
+}</string>
+        </property>
         <property name="text">
          <string>Category</string>
         </property>
@@ -650,6 +920,11 @@
           <weight>50</weight>
           <bold>false</bold>
          </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+    color: #333333;
+}</string>
         </property>
         <property name="text">
          <string>Creator</string>
@@ -671,6 +946,11 @@
           <bold>false</bold>
          </font>
         </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+    color: #333333;
+}</string>
+        </property>
         <property name="text">
          <string>Link</string>
         </property>
@@ -691,6 +971,11 @@
           <bold>false</bold>
          </font>
         </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+    color: #333333;
+}</string>
+        </property>
         <property name="text">
          <string>Version</string>
         </property>
@@ -703,6 +988,12 @@
           <width>521</width>
           <height>331</height>
          </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+}background-color: rgb(255, 255, 255);</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_8">
@@ -720,6 +1011,11 @@
           <weight>50</weight>
           <bold>false</bold>
          </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+    color: #333333;
+}</string>
         </property>
         <property name="text">
          <string>Description</string>
@@ -754,6 +1050,12 @@
           <height>41</height>
          </rect>
         </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+}</string>
+        </property>
        </widget>
        <widget class="QLabel" name="label_14">
         <property name="geometry">
@@ -770,6 +1072,11 @@
           <weight>50</weight>
           <bold>false</bold>
          </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+    color: #333333;
+}</string>
         </property>
         <property name="text">
          <string>Creator</string>
@@ -791,6 +1098,11 @@
           <bold>false</bold>
          </font>
         </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+    color: #333333;
+}</string>
+        </property>
         <property name="text">
          <string>Category</string>
         </property>
@@ -803,6 +1115,12 @@
           <width>251</width>
           <height>41</height>
          </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+}</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_16">
@@ -820,6 +1138,11 @@
           <weight>50</weight>
           <bold>false</bold>
          </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+    color: #333333;
+}</string>
         </property>
         <property name="text">
          <string>Mod Title</string>
@@ -841,6 +1164,11 @@
           <bold>false</bold>
          </font>
         </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+    color: #333333;
+}</string>
+        </property>
         <property name="text">
          <string>Version</string>
         </property>
@@ -860,6 +1188,11 @@
           <weight>50</weight>
           <bold>false</bold>
          </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+    color: #333333;
+}</string>
         </property>
         <property name="text">
          <string>Game</string>
@@ -881,6 +1214,11 @@
           <bold>false</bold>
          </font>
         </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+    color: #333333;
+}</string>
+        </property>
         <property name="text">
          <string>Link</string>
         </property>
@@ -894,6 +1232,12 @@
           <height>41</height>
          </rect>
         </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+}</string>
+        </property>
        </widget>
        <widget class="QComboBox" name="comboBox_9">
         <property name="geometry">
@@ -903,6 +1247,34 @@
           <width>251</width>
           <height>31</height>
          </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QComboBox {
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    padding: 5px;
+    color: #333333;
+}
+
+QComboBox:hover {
+    border: 1px solid #00796B;
+}
+
+QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 20px;
+    border-left: 1px solid #CCCCCC;
+    background-color: #FFFFFF;
+}
+
+QComboBox QAbstractItemView {
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    selection-background-color: #00796B;
+    selection-color: #FFFFFF;
+}
+</string>
         </property>
        </widget>
        <widget class="QComboBox" name="comboBox_10">
@@ -914,6 +1286,34 @@
           <height>31</height>
          </rect>
         </property>
+        <property name="styleSheet">
+         <string notr="true">QComboBox {
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    padding: 5px;
+    color: #333333;
+}
+
+QComboBox:hover {
+    border: 1px solid #00796B;
+}
+
+QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 20px;
+    border-left: 1px solid #CCCCCC;
+    background-color: #FFFFFF;
+}
+
+QComboBox QAbstractItemView {
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    selection-background-color: #00796B;
+    selection-color: #FFFFFF;
+}
+</string>
+        </property>
        </widget>
        <widget class="QComboBox" name="comboBox_11">
         <property name="geometry">
@@ -923,6 +1323,34 @@
           <width>251</width>
           <height>31</height>
          </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QComboBox {
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    padding: 5px;
+    color: #333333;
+}
+
+QComboBox:hover {
+    border: 1px solid #00796B;
+}
+
+QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 20px;
+    border-left: 1px solid #CCCCCC;
+    background-color: #FFFFFF;
+}
+
+QComboBox QAbstractItemView {
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    selection-background-color: #00796B;
+    selection-color: #FFFFFF;
+}
+</string>
         </property>
        </widget>
        <widget class="QPushButton" name="pushButton_9">
@@ -940,6 +1368,18 @@
           <weight>75</weight>
           <bold>true</bold>
          </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background-color: #00796B;
+    color: #FFFFFF;
+    border: none;
+    padding: 5px 10px;
+}
+
+QPushButton:hover {
+    background-color: #00574B;
+}</string>
         </property>
         <property name="text">
          <string>Search</string>
@@ -959,6 +1399,18 @@
           <pointsize>12</pointsize>
          </font>
         </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background-color: #00796B;
+    color: #FFFFFF;
+    border: none;
+    padding: 5px 10px;
+}
+
+QPushButton:hover {
+    background-color: #00574B;
+}</string>
+        </property>
         <property name="text">
          <string>Edit</string>
         </property>
@@ -977,6 +1429,18 @@
           <pointsize>12</pointsize>
          </font>
         </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background-color: #00796B;
+    color: #FFFFFF;
+    border: none;
+    padding: 5px 10px;
+}
+
+QPushButton:hover {
+    background-color: #00574B;
+}</string>
+        </property>
         <property name="text">
          <string>Delete</string>
         </property>
@@ -989,6 +1453,12 @@
           <width>521</width>
           <height>331</height>
          </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+}background-color: rgb(255, 255, 255);</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_9">
@@ -1007,6 +1477,11 @@
           <bold>false</bold>
          </font>
         </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+    color: #333333;
+}</string>
+        </property>
         <property name="text">
          <string>Description</string>
         </property>
@@ -1019,6 +1494,12 @@
           <width>251</width>
           <height>41</height>
          </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+}</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_38">
@@ -1057,6 +1538,9 @@
         <height>521</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(230, 230, 230);</string>
+      </property>
       <property name="title">
        <string>Edit User Information</string>
       </property>
@@ -1073,6 +1557,11 @@
         <font>
          <pointsize>12</pointsize>
         </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLabel {
+    color: #333333;
+}</string>
        </property>
        <property name="text">
         <string>UserName</string>
@@ -1092,6 +1581,11 @@
          <pointsize>12</pointsize>
         </font>
        </property>
+       <property name="styleSheet">
+        <string notr="true">QLabel {
+    color: #333333;
+}</string>
+       </property>
        <property name="text">
         <string>Password</string>
        </property>
@@ -1104,6 +1598,9 @@
          <width>251</width>
          <height>41</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);</string>
        </property>
        <property name="placeholderText">
         <string>User</string>
@@ -1123,6 +1620,18 @@
          <pointsize>12</pointsize>
         </font>
        </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+    background-color: #00796B;
+    color: #FFFFFF;
+    border: none;
+    padding: 5px 10px;
+}
+
+QPushButton:hover {
+    background-color: #00574B;
+}</string>
+       </property>
        <property name="text">
         <string>Login</string>
        </property>
@@ -1135,6 +1644,9 @@
          <width>251</width>
          <height>41</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);</string>
        </property>
        <property name="echoMode">
         <enum>QLineEdit::Password</enum>
@@ -1156,6 +1668,9 @@
         <height>501</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(230, 230, 230);</string>
+      </property>
       <property name="title">
        <string>Edit</string>
       </property>
@@ -1172,6 +1687,11 @@
         <font>
          <pointsize>12</pointsize>
         </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLabel {
+    color: #333333;
+}</string>
        </property>
        <property name="text">
         <string>Password</string>
@@ -1191,6 +1711,11 @@
          <pointsize>12</pointsize>
         </font>
        </property>
+       <property name="styleSheet">
+        <string notr="true">QLabel {
+    color: #333333;
+}</string>
+       </property>
        <property name="text">
         <string>UserName</string>
        </property>
@@ -1209,6 +1734,11 @@
          <pointsize>12</pointsize>
         </font>
        </property>
+       <property name="styleSheet">
+        <string notr="true">QLabel {
+    color: #333333;
+}</string>
+       </property>
        <property name="text">
         <string>Password Again</string>
        </property>
@@ -1222,6 +1752,9 @@
          <height>41</height>
         </rect>
        </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
        <property name="placeholderText">
         <string>User</string>
        </property>
@@ -1234,6 +1767,9 @@
          <width>251</width>
          <height>41</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);</string>
        </property>
        <property name="echoMode">
         <enum>QLineEdit::Password</enum>
@@ -1250,6 +1786,9 @@
          <width>251</width>
          <height>41</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);</string>
        </property>
        <property name="echoMode">
         <enum>QLineEdit::Password</enum>
@@ -1275,6 +1814,18 @@
          <pointsize>12</pointsize>
         </font>
        </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+    background-color: #00796B;
+    color: #FFFFFF;
+    border: none;
+    padding: 5px 10px;
+}
+
+QPushButton:hover {
+    background-color: #00574B;
+}</string>
+       </property>
        <property name="text">
         <string>Edit User Data</string>
        </property>
@@ -1294,8 +1845,11 @@
         <height>551</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(230, 230, 230);</string>
+      </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="tab_7">
        <attribute name="title">
@@ -1319,7 +1873,7 @@
        <widget class="QLabel" name="label_22">
         <property name="geometry">
          <rect>
-          <x>110</x>
+          <x>80</x>
           <y>30</y>
           <width>201</width>
           <height>61</height>
@@ -1343,6 +1897,12 @@
           <height>51</height>
          </rect>
         </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+}</string>
+        </property>
        </widget>
        <widget class="QPushButton" name="pushButton_13">
         <property name="geometry">
@@ -1353,8 +1913,25 @@
           <height>51</height>
          </rect>
         </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background-color: #00796B;
+    color: #FFFFFF;
+    border: none;
+    padding: 5px 10px;
+}
+
+QPushButton:hover {
+    background-color: #00574B;
+}</string>
+        </property>
         <property name="text">
-         <string>Add</string>
+         <string>Delete</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="lineEdit_16">
@@ -1366,6 +1943,12 @@
           <height>51</height>
          </rect>
         </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+}</string>
+        </property>
        </widget>
        <widget class="QPushButton" name="pushButton_14">
         <property name="geometry">
@@ -1375,6 +1958,23 @@
           <width>211</width>
           <height>51</height>
          </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background-color: #00796B;
+    color: #FFFFFF;
+    border: none;
+    padding: 5px 10px;
+}
+
+QPushButton:hover {
+    background-color: #00574B;
+}</string>
         </property>
         <property name="text">
          <string>Add</string>
@@ -1427,8 +2027,25 @@
           <height>51</height>
          </rect>
         </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background-color: #00796B;
+    color: #FFFFFF;
+    border: none;
+    padding: 5px 10px;
+}
+
+QPushButton:hover {
+    background-color: #00574B;
+}</string>
+        </property>
         <property name="text">
-         <string>Add</string>
+         <string>Delete</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="lineEdit_17">
@@ -1440,6 +2057,12 @@
           <height>51</height>
          </rect>
         </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+}</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="lineEdit_4">
         <property name="geometry">
@@ -1449,6 +2072,12 @@
           <width>291</width>
           <height>51</height>
          </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+}</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_23">
@@ -1477,6 +2106,23 @@
           <width>211</width>
           <height>51</height>
          </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background-color: #00796B;
+    color: #FFFFFF;
+    border: none;
+    padding: 5px 10px;
+}
+
+QPushButton:hover {
+    background-color: #00574B;
+}</string>
         </property>
         <property name="text">
          <string>Add</string>
@@ -1529,6 +2175,12 @@
           <height>51</height>
          </rect>
         </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+}</string>
+        </property>
        </widget>
        <widget class="QPushButton" name="pushButton_17">
         <property name="geometry">
@@ -1538,6 +2190,23 @@
           <width>211</width>
           <height>51</height>
          </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background-color: #00796B;
+    color: #FFFFFF;
+    border: none;
+    padding: 5px 10px;
+}
+
+QPushButton:hover {
+    background-color: #00574B;
+}</string>
         </property>
         <property name="text">
          <string>Add</string>
@@ -1551,6 +2220,12 @@
           <width>291</width>
           <height>51</height>
          </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+}</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_24">
@@ -1579,6 +2254,23 @@
           <width>211</width>
           <height>51</height>
          </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background-color: #00796B;
+    color: #FFFFFF;
+    border: none;
+    padding: 5px 10px;
+}
+
+QPushButton:hover {
+    background-color: #00574B;
+}</string>
         </property>
         <property name="text">
          <string>Delete</string>

@@ -49,12 +49,19 @@ class Login(QMainWindow, login):
                 self.close()
                 self.window2.show()
 
+    import sqlite3
+
     def Regist(self):
         self.db = sqlite3.connect(self.db_path)
         self.cur = self.db.cursor()
 
-        name = self.lineEdit_4.text()
-        password = self.lineEdit_3.text()
+        name = self.lineEdit_4.text().strip()
+        password = self.lineEdit_3.text().strip()
+
+        # Check for empty fields
+        if not name or not password:
+            self.statusBar().showMessage('Fields cannot be empty')
+            return
 
         # Проверка, существует ли уже пользователь с таким именем
         self.cur.execute('''
@@ -71,8 +78,6 @@ class Login(QMainWindow, login):
             ''', (name, password))
             self.db.commit()
             self.statusBar().showMessage('Add New User')
-
-
 
 
 class MainApp(QMainWindow, ui):
@@ -125,12 +130,13 @@ class MainApp(QMainWindow, ui):
         self.pushButton_8.clicked.connect(self.Clear_Daybook)
 
         self.pushButton_20.clicked.connect(self.Export_Daybook)
+        self.pushButton_21.clicked.connect(self.Export_Mods)
 
     def Show_Infrom(self):
         self.groupBox_4.show()
 
-  #  def Hiding_Show_Inform(self):
-   #     self.groupBox_4.hide()
+    def Hiding_Show_Inform(self):
+        pass
 
     # Opening tabs #
     def Open_Act_Day(self):
@@ -159,8 +165,8 @@ class MainApp(QMainWindow, ui):
 
 
         mod_title = self.lineEdit.text()
-        game_title = self.lineEdit.text()
-        release_time = self.lineEdit.text()
+        game_title = self.lineEdit_19.text()
+        release_time = self.lineEdit_10.text()
         degree_time = self.comboBox.currentText()
 
         self.cur.execute('''
@@ -585,9 +591,9 @@ class MainApp(QMainWindow, ui):
         sheet1 = wb.add_worksheet()
 
         sheet1.write(0,0,'Mod Title')
-        sheet1.write(0, 0, 'Game Title')
-        sheet1.write(0, 0, 'Relese Date')
-        sheet1.write(0, 0, 'Actualy')
+        sheet1.write(0, 1, 'Game Title')
+        sheet1.write(0, 2, 'Relese Date')
+        sheet1.write(0, 3, 'Actualy')
 
         row_number = 1
         for row in data :
@@ -607,16 +613,21 @@ class MainApp(QMainWindow, ui):
 
 
         self.cur.execute(
-            ''' SELECT mod_title, mod_game, mod_category, mod_creator, mod_link, mod_version,mod_discription FROM Mods''')
+            ''' SELECT mod_title, mod_game, mod_category, mod_creator, mod_link, mod_version,mod_discription FROM Mods'''
+        )
 
         data = self.cur.fetchall()
-        wb = Workbook('Notebook.xlsx')
+        wb = Workbook('Mods.xlsx')
         sheet1 = wb.add_worksheet()
 
         sheet1.write(0, 0, 'Mod Title')
-        sheet1.write(0, 0, 'Game Title')
-        sheet1.write(0, 0, 'Relese Date')
-        sheet1.write(0, 0, 'Actualy')
+        sheet1.write(0, 1, 'Game')
+        sheet1.write(0, 2, 'Category')
+        sheet1.write(0, 3, 'Discription')
+        sheet1.write(0, 4, 'Actual version')
+        sheet1.write(0, 5, 'Link')
+        sheet1.write(0, 6, 'Creator')
+
 
         row_number = 1
         for row in data:
