@@ -103,7 +103,6 @@ class MainApp(QMainWindow, ui):
         self.Show_Daybook()
 
     def Handle_UI_Changes(self):
-      #  self.Hiding_Show_Inform()
         self.tabWidget.tabBar().setVisible(False)
 
     def Handle_Buttons(self):
@@ -111,7 +110,7 @@ class MainApp(QMainWindow, ui):
         self.pushButton_2.clicked.connect(self.Open_Mods_Tab)
         self.pushButton_4.clicked.connect(self.Open_Users_Tab)
         self.pushButton_3.clicked.connect(self.Open_Settings)
-        self.pushButton_5.clicked.connect(self.Show_Infrom)
+        self.pushButton_5.clicked.connect(self.Open_Inform)
 
         self.pushButton_13.clicked.connect(self.Delete_Games)
         self.pushButton_7.clicked.connect(self.Add_New_Mods)
@@ -136,11 +135,6 @@ class MainApp(QMainWindow, ui):
 
         self.pushButton_22.clicked.connect(self.Clear_Mods)
 
-    def Show_Infrom(self):
-        self.groupBox_4.show()
-
-    def Hiding_Show_Inform(self):
-        pass
 
     # Opening tabs #
     def Open_Act_Day(self):
@@ -158,7 +152,8 @@ class MainApp(QMainWindow, ui):
     def Open_Settings(self):
         self.tabWidget.setCurrentIndex(3)
 
-
+    def Open_Inform(self):
+        self.tabWidget.setCurrentIndex(4)
 
 
     def Daybook(self):
@@ -368,13 +363,6 @@ class MainApp(QMainWindow, ui):
             self.db.commit()
             self.statusBar().showMessage('Mod Deleted')
 
-            self.lineEdit_7.setText('')
-            self.comboBox_2.setCurrentIndex(0)
-            self.comboBox_4.setCurrentIndex(0)
-            self.comboBox_5.setCurrentIndex(0)
-            self.lineEdit_6.setText('')
-            self.lineEdit_3.setText('')
-            self.lineEdit_14.setText('')
 
             self.Show_All_Mods()
 
